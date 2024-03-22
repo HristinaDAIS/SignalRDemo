@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using SignalRDemo.Models.Providers;
 using SignalRDemo.Providers.Balance;
 
 namespace SignalRDemo.Hubs
