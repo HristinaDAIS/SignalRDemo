@@ -1,5 +1,5 @@
-function HomeViewModel(connection) {
-    var self = this;
+function AccountsViewModel(connection) {
+    const self = this;
 
     self.connection = connection;
 
@@ -15,11 +15,12 @@ function HomeViewModel(connection) {
     self.listOfAccounts = ko.observableArray();
 
     self.getBalance = function (data) {
+        data.loading(true);
         self.connection.invoke("GetBalance", data.accountId);
     };
 
     self.getAccounts = function () {
-        $.getJSON("getAccounts" + window.location.search, function (data) {
+        $.getJSON(`getAccounts${window.location.search}`, function (data) {
             ko.mapping.fromJS(data.accounts, self.accountsMapping, self.listOfAccounts)
         });
     };
@@ -43,23 +44,13 @@ function buildConnection() {
         })
     });
 
-    connection.on("StartedLoading", (accountId) => {
-        console.log(`StartedLoading: accountId -> ${accountId}`);
-
-        ko.utils.arrayMap(viewModel.listOfAccounts(), (item) => {
-            if (item.accountId == accountId) {
-                item.loading(true);
-            }
-        })
-    });
-
     connection.start();
 
     return connection;
 }
 
 const connection = buildConnection();
-const viewModel = new HomeViewModel(connection);
+const viewModel = new AccountsViewModel(connection);
 ko.applyBindings(viewModel);
 
 viewModel.getAccounts();

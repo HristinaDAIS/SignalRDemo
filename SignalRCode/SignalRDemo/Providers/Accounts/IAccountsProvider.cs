@@ -12,11 +12,9 @@ namespace SignalRDemo.Providers.Accounts
     {
         public IEnumerable<Account> GetByUser(int userId)
         {
-            switch (userId)
+            return userId switch
             {
-                case 1:
-                    return new List<Account>()
-                    {
+                1 => [
                         new()
                         {
                             Id = 1,
@@ -44,11 +42,8 @@ namespace SignalRDemo.Providers.Accounts
                                 Amount = 58
                             }
                         }
-                    };
-                case 2:
-
-                    return new List<Account>()
-                    {
+                    ],
+                2 => [
                         new()
                         {
                             Id = 1,
@@ -76,11 +71,8 @@ namespace SignalRDemo.Providers.Accounts
                                 Amount = 77
                             }
                         }
-                    };
-
-                default:
-                    return new List<Account>()
-                    {
+                    ],
+                _ => [
                         new()
                         {
                             Id = 1,
@@ -117,8 +109,8 @@ namespace SignalRDemo.Providers.Accounts
                                 Amount = 77
                             }
                         }
-                    };
-            }
+                    ],
+            };
         }
     }
 }
