@@ -6,32 +6,6 @@
     <script src="~/js/Accounts.js" asp-append-version="true"></script>
 }
 
-@* <div class="text-center">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Сметка</th>
-                <th scope="col">Баланс</th>
-                <th scope="col">Обнови</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody data-bind="foreach: listOfAccounts">
-            <tr>
-                <th scope="row"><span data-bind="text: accountId"></span></th>
-                <td><span data-bind="text: iban"></span></td>
-                <td>
-                    <span data-bind="text: balance"></span>
-                    <span>лв</span>
-                </td>
-                <td><button class="btn btn-primary" data-bind="click: $root.getBalance">Обнови</button></td>
-                <td> <div class="spinner-border text-success" role="status" data-bind="visible: loading" /></td>
-            </tr>
-        </tbody>
-    </table>
-</div> *@
-
 <div>
     <div class="page">
         <div class="page-heading">
@@ -43,27 +17,25 @@
                 <div class="block text-center">
                     <h4 class="">Общ баланс</h4>
                     <div class="amt">
-                        <span class="amt-integer">4 506</span>.<span class="amt-decimal">00</span><span class="amt-ccy">лв.</span>
+                        <span class="amt-integer" data-bind="text: totalBalance"></span>.<span class="amt-decimal">00</span><span class="amt-ccy">лв.</span>
                     </div>
                 </div>
 
                 <div class="cards-list">
                     <div class="cards-list-title">
                         <h3>Карти</h3>
-                        <span class="add">+</span>
                     </div>
                     <div class="cards" data-bind="foreach: listOfAccounts">
-                        <div class="card" data-bind="click: function(obj,el){return ClickCommand(obj,el);}">
+                        <div class="card" data-bind="click: $root.selectCard, class: onSelectClass">
                             <h4 class="card-detail">Баланс</h4>
                             <div class="amt">
-                                <span class="amt-integer" data-bind="text: balance">1 506</span>.<span class="amt-decimal">00</span><span class="amt-ccy">лв.</span>
+                                <span class="amt-integer" data-bind="text: balance"></span>.<span class="amt-decimal">00</span><span class="amt-ccy">лв.</span>
                             </div>
                             <div class="card-number" data-bind="text: iban">
-                                1585 7455 0852 4578
                             </div>
                             <div class="card-valid card-detail">
                                 <h4 class="text-uppercase">Валидна до</h4>
-                                <span class="date" data-bind="text: validDate">08/27</span>
+                                <span class="date" data-bind="text: validDate"></span>
                             </div>
                             <div class="logo wireless"><img src="~/img/contactless-payment.svg" alt="" /></div>
                             <div class="logo card-type"><img src="~/img/visa-logo-2.svg" alt="" /></div>
@@ -72,22 +44,23 @@
                 </div>
             </div>
             <div class="separator"></div>
-            <div class="c-2 details">
+            <div class="c-2 details" data-bind="with: selectedCard">
                 <div class="block">
-                    <h3 class="">Преглед на <img class="icon" src="~/img/credit-card-arrow-right-svgrepo-com.svg" alt="srv" /><strong><span class="card-number" data-bind="text: '1585 7455 0852 4578'"></span></strong></h3>
-
-                    <hr />
+                    <h3 class="">Преглед на <img class="icon" src="~/img/credit-card-arrow-right-svgrepo-com.svg" alt="srv" />
+                        <strong><span class="card-number" data-bind="text: iban"></span></strong>
+                    </h3>
+                    <hr/>
 
                     <div class="details-list">
                         <div class="detail-item">
                             <h4>Баланс</h4>
                             <div class="amt">
-                                <span class="amt-integer">1 506</span>.<span class="amt-decimal">00</span><span class="amt-ccy">лв.</span>
+                                <span class="amt-integer" data-bind="text: balance"></span>.<span class="amt-decimal">00</span><span class="amt-ccy">лв.</span>
                             </div>
                         </div>
                         <div class ="detail-item">
                             <h4>Валидна до</h4>
-                            <span class="date">08/27</span>
+                            <span class="date" data-bind="text: validDate"></span>
                         </div>
                         <div class="detail-item">
                             <h4>Тип</h4>
@@ -98,13 +71,13 @@
                             <strong>Активна</strong>
                         </div>
                         <div class="detail-item">
-                            <button class="btn">Обнови</button>
+                            <button class="btn" data-bind="click: $root.getBalance">Обнови</button>
                         </div>
                     </div>
 
-                    <hr />
+                    <hr/>
 
-                    <div class="lds-ellipsis" style="display: none"><div></div><div></div><div></div><div></div></div>
+                    <div class="lds-ellipsis" data-bind="visible: loading"><div></div><div></div><div></div><div></div></div>
                 </div>
             </div>
         </div>

@@ -2,17 +2,27 @@ function AccountsViewModel(connection) {
     const self = this;
 
     self.connection = connection;
+    self.selectedCard = ko.observable();
+    self.listOfAccounts = ko.observableArray();
+    self.totalBalance = ko.computed(() => {
+        return self.listOfAccounts().reduce((accumulator, account) => accumulator + account.balance(), 0);
+    });
 
     self.accountsMapping = {
         update: (options) => {
             const account = options.data;
             account.balance = ko.observable(account.balance);
             account.loading = ko.observable(false);
+            account.onSelectClass = ko.computed(() => {
+                if (self.selectedCard() && self.selectedCard().accountId == account.accountId) {
+                    return "active"
+                }
+                else return "none";
+            });
+
             return account;
         }
     };
-
-    self.listOfAccounts = ko.observableArray();
 
     self.getBalance = function (data) {
         data.loading(true);
@@ -24,6 +34,10 @@ function AccountsViewModel(connection) {
             ko.mapping.fromJS(data.accounts, self.accountsMapping, self.listOfAccounts)
         });
     };
+
+    self.selectCard = function (item) {
+        self.selectedCard(item);
+    }
 }
 
 function buildConnection() {
@@ -47,15 +61,6 @@ function buildConnection() {
     connection.start();
 
     return connection;
-}
-
-function ClickCommand(obj, e) {
-    element = e.delegateTarget;
-    siblings = e.delegateTarget.parentElement.children;
-    for (var i = 0; i < siblings.length; i++) {
-        siblings[i].classList.remove('active');
-    }
-    element.classList.add('active');
 }
 
 const connection = buildConnection();
