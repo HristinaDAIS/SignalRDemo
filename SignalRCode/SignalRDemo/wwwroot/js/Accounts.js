@@ -58,6 +58,16 @@ function buildConnection() {
         })
     });
 
+    connection.on("StartedLoading", (accountId) => {
+        console.log(`StartedLoading: accountId -> ${accountId}`);
+
+        ko.utils.arrayMap(viewModel.listOfAccounts(), (item) => {
+            if (item.accountId == accountId) {
+                item.loading(true);
+            }
+        })
+    });
+
     connection.start();
 
     return connection;
