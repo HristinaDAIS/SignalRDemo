@@ -7,5 +7,7 @@
         public required string IBAN { get; set; }
 
         public required decimal Balance { get; set; }
+
+        public required string ValidDate { get; set; }
     }
 }

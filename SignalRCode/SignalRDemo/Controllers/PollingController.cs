@@ -22,7 +22,8 @@ namespace SignalRDemo.Controllers
             {
                 AccountId = a.Id,
                 IBAN = a.IBAN,
-                Balance = a.Balance.Amount
+                Balance = a.Balance.Amount,
+                ValidDate = a.ValidDate
             }).ToList();
 
             return Json(new { Accounts = accountsViewModel });

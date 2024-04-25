@@ -49,6 +49,15 @@ function buildConnection() {
     return connection;
 }
 
+function ClickCommand(obj, e) {
+    element = e.delegateTarget;
+    siblings = e.delegateTarget.parentElement.children;
+    for (var i = 0; i < siblings.length; i++) {
+        siblings[i].classList.remove('active');
+    }
+    element.classList.add('active');
+}
+
 const connection = buildConnection();
 const viewModel = new AccountsViewModel(connection);
 ko.applyBindings(viewModel);

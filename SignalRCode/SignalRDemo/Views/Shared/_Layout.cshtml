@@ -9,17 +9,18 @@
     <link rel="stylesheet" href="~/SignalRDemo.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SignalRDemo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="menu">
+        <nav class="text-white">
+            <div class="text-center">
+                <a class="menu-brand" asp-area="" asp-controller="Home" asp-action="Index"><strong>SignalR</strong>Demo</a>
+            </div>
+            <div class="links flex-column">
+                <a href="https://localhost:7149/polling/index?userId=1"><img src="~/img/server-svgrepo-com.svg" alt="srv" /> Polling</a>
+                <a href="https://localhost:7149/accounts/index?userId=1"><img src="~/img/credit-card-arrow-right-svgrepo-com.svg" alt="srv" /> Cards</a>
             </div>
         </nav>
-    </header>
+    </div>
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
