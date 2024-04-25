@@ -37,7 +37,7 @@
                     }
                 }
             });
-        }, 2000);
+        }, 1000);
     };
 
     self.getAccounts = function () {
