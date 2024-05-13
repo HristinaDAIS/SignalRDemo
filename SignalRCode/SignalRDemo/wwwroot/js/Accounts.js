@@ -24,6 +24,13 @@ function AccountsViewModel(connection) {
         }
     };
 
+    self.makePayment = function (data) {
+        let balance = data.balance() - 20;
+
+        data.balance(balance);
+        self.connection.invoke("PaymentMade", data.accountId, balance);
+    };
+
     self.getBalance = function (data) {
         data.loading(true);
         self.connection.invoke("GetBalance", data.accountId);

@@ -55,7 +55,7 @@ namespace SignalRDemo.Providers.Accounts
                             {
                                 Amount = 100
                             },
-                            ValidDate = "12/29"
+                            ValidDate = "05/26"
                         },
                         new()
                         {
@@ -65,7 +65,7 @@ namespace SignalRDemo.Providers.Accounts
                             {
                                 Amount = 58
                             },
-                            ValidDate = "06/26"
+                            ValidDate = "05/27"
                         },
                         new()
                         {
@@ -75,7 +75,7 @@ namespace SignalRDemo.Providers.Accounts
                             {
                                 Amount = 77
                             },
-                            ValidDate = "02/25"
+                            ValidDate = "04/26"
                         }
                     ],
                 _ => [
@@ -87,7 +87,7 @@ namespace SignalRDemo.Providers.Accounts
                             {
                                 Amount = 100
                             },
-                            ValidDate = "02/28"
+                            ValidDate = "05/26"
                         },
                         new()
                         {
@@ -97,7 +97,7 @@ namespace SignalRDemo.Providers.Accounts
                             {
                                 Amount = 213
                             },
-                            ValidDate = "10/26"
+                            ValidDate = "08/28"
                         },
                         new()
                         {
@@ -107,7 +107,7 @@ namespace SignalRDemo.Providers.Accounts
                             {
                                 Amount = 58
                             },
-                            ValidDate = "12/27"
+                            ValidDate = "05/27"
                         },
                         new()
                         {

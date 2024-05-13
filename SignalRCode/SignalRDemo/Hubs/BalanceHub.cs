@@ -14,5 +14,10 @@ namespace SignalRDemo.Hubs
 
             await this.balanceAsyncProvider.GetAsync(accountId);
         }
+
+        public async Task PaymentMade(int accountId, decimal balance)
+        {
+            await this.Clients.All.BalanceReceived(balance, accountId);
+        }
     }
 }
