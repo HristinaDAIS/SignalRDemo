@@ -28,7 +28,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 2,
-                            IBAN = "7455 0852 4578 1585",
+                            IBAN = "2455 0852 4578 1585",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 213
@@ -38,7 +38,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 3,
-                            IBAN = "4578 7455 4578 0852",
+                            IBAN = "4290 3743 8724 8657",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 58
@@ -50,7 +50,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 1,
-                            IBAN = "7455 0852 4578 1585",
+                            IBAN = "1585 7455 0852 4578",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 100
@@ -60,7 +60,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 3,
-                            IBAN = "1585 7455 0852 4578",
+                            IBAN = "4290 3743 8724 8657",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 58
@@ -70,7 +70,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 4,
-                            IBAN = "1585 7455 0852 4578",
+                            IBAN = "5548 4540 3846 0736",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 77
@@ -82,7 +82,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 1,
-                            IBAN = "7455 1585 4578 0852",
+                            IBAN = "1585 7455 0852 4578",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 100
@@ -92,7 +92,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 2,
-                            IBAN = "0852 4578 1585 7455",
+                            IBAN = "2455 0852 4578 1585",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 213
@@ -102,7 +102,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 3,
-                            IBAN = "1585 7455 0852 4578",
+                            IBAN = "4290 3743 8724 8657",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 58
@@ -112,7 +112,7 @@ namespace SignalRDemo.Providers.Accounts
                         new()
                         {
                             Id = 4,
-                            IBAN = "2585 0852 8455 1257",
+                            IBAN = "5548 4540 3846 0736",
                             Balance = new Models.Providers.Balance()
                             {
                                 Amount = 77

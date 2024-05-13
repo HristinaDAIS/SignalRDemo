@@ -16,7 +16,7 @@ namespace SignalRDemo.Hubs.ExampleHubs
         public async Task SendToCaller(decimal amount, int accountId) =>
           await Clients.Caller.BalanceReceived(amount, accountId);
 
-        //Sends a message to a certain client that is identified by thir unique connectionId
+        //Sends a message to a certain client that is identified by thеir unique connectionId
         //To do that you need to store the connectionId in your application when the client connects to the Hub
         public async Task SendToCertainClient(decimal amount, int accountId) =>
           await Clients.Client("connectionId").BalanceReceived(amount, accountId);
